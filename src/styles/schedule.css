@@ -1,0 +1,212 @@
+/* ===== LOGO ===== */
+
+.logo {
+    background-color: var(--bg-tertiary-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.75rem 1.25rem;
+
+    height: 3.5rem;
+    width: 10.5rem;
+
+    border-bottom-right-radius: 0.75rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+}
+
+.logo span {
+    font: var(--label-lg-style-font);
+    color: var(--content-brand-color);
+}
+
+.logo img {
+    scale: 1.35;
+}
+
+/* ===== CONTAINER ===== */
+
+.container {
+    background-color: var(--bg-primary-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+/* ===== TITLE ===== */
+
+.agenda {
+    display: flex;
+    justify-content: space-between;
+
+    width: 50%;
+
+    margin-bottom: 2rem;
+}
+
+.title {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.agenda-title {
+    font: var(--title-style-font);
+    color: var(--content-primary-color);
+}
+
+.agenda-subtitle {
+    font: var(--paragraph-md-style-font);
+    color: var(--content-secondary-color);
+}
+
+.input-date {
+    width: 13rem;
+
+    border: 1px solid var(--border-primary-color);
+    padding: 0.87rem 0.75rem;
+    border-radius: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.input-date i {
+    margin-right: 0.5rem;
+}
+
+.input-date input {
+    background-color: transparent;
+
+    font: var(--label-lg-style-font);
+    color: var(--content-secondary-color);
+
+    flex: 1;
+
+    outline: none;
+    border: none;
+}
+
+.input-date:focus-within {
+    border: 1.5px solid var(--border-brand-color);
+}
+
+/* ===== SCHEDULES ===== */
+
+li {
+    list-style-type: none;
+}
+
+.schedule-period {
+    background-color: var(--bg-tertiary-color);
+
+    margin-bottom: 1rem;
+
+    border-radius: 10px;
+
+    width: 50%;
+}
+
+.schedule-period header,
+.schedule-period header div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.schedule-period header {
+    padding: 1rem;
+
+    border-bottom: 1px solid var(--border-divisor-color);
+}
+
+.schedule-period header div img {
+    margin-right: 0.5rem;
+}
+
+.schedule-period header div strong {
+    font: var(--label-lg-style-font);
+    color: var(--content-primary-color);
+}
+
+.schedule-period header span {
+    font: var(--label-lg-style-font);
+    color: var(--content-tertiary-color);
+}
+
+.schedule-period .period {
+    padding: 1.5rem 1rem;
+}
+
+.schedule-period .period li {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    padding: 1rem 0;
+
+    width: 100%;
+}
+
+.schedule-period .period li {
+    border-top: 1px solid var(--border-divisor-color);
+}
+
+.schedule-period .period li:first-child {
+    border-top: none;
+}
+
+.schedule-period .period li div span {
+    margin-left: 1rem;
+}
+
+.schedule-period .period li strong {
+    font: var(--label-md-style-font);
+    color: var(--content-primary-color);
+}
+
+.schedule-period .period li span {
+    font: var(--paragraph-md-style-font);
+    color: var(--content-secondary-color);
+
+    justify-self: start;
+}
+
+.schedule-period .period li .remove-schedule {
+    color: var(--content-tertiary-color);
+
+    justify-self: end;
+
+    cursor: pointer;
+}
+
+/* ===== BUTTON =====*/
+.button {
+    background-color: var(--content-brand-color);
+
+    font: var(--label-lg-style-font);
+
+    padding: 0.875rem;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: 200ms;
+}
+
+.button:hover {
+    background-color: var(--bg-highlights-color);
+}
