@@ -4,7 +4,8 @@
     "description": "Application for scheduling veterinary appointments. Practical challenge 08 Rocketseat FullStack training",
     "scripts": {
         "build": "webpack",
-        "dev": "webpack serve"
+        "dev": "webpack serve",
+        "server": "json-server --watch server.json --port 3333"
     },
     "devDependencies": {
         "@babel/cli": "^7.28.0",
@@ -20,6 +21,7 @@
         "webpack-dev-server": "^5.2.2"
     },
     "dependencies": {
-        "dayjs": "^1.11.13"
+        "dayjs": "^1.11.13",
+        "json-server": "^1.0.0-beta.3"
     }
 }
