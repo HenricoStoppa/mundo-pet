@@ -1,5 +1,8 @@
 import dayjs from "dayjs";
-import { closeScheduleForm } from "./close";
+import { closeScheduleForm } from "./close.js";
+import { scheduleNew } from "../../services/schedule-new.js";
+import { schedulesLoad } from "../schedules/load.js";
+import { availableHours } from "../../utils/available-hours.js";
 
 const form = document.querySelector("form");
 const tutorName = document.getElementById("tutor-name");
@@ -11,16 +14,24 @@ const selectedTime = document.getElementById("form-time");
 const formDateInput = document.getElementById("form-date");
 const formTimeInput = document.getElementById("form-time");
 
-const inputTodayDate = dayjs(new Date()).format("YYYY-MM-DD");
-const inputTodayHour = dayjs(new Date()).format("HH:mm");
+const todayDate = dayjs(new Date()).format("YYYY-MM-DD");
+const nowHour = dayjs(new Date()).format("HH:mm");
 
 // Show actual date & define minimum date
-formDateInput.value = inputTodayDate;
-formDateInput.min = inputTodayDate;
+formDateInput.value = todayDate;
+formDateInput.min = todayDate;
 
-// Show actual time & define minimum time
-formTimeInput.value = inputTodayHour;
-formTimeInput.min = inputTodayHour;
+// Show actual time & define minimum & maximum time
+formTimeInput.value = nowHour;
+formTimeInput.min = nowHour;
+formTimeInput.max = availableHours.closeHour;
+
+formDateInput.onchange = () => {
+    formTimeInput.value = availableHours.openHour;
+    formDateInput.value == todayDate
+        ? (formTimeInput.min = nowHour)
+        : (formTimeInput.min = availableHours.openHour);
+};
 
 form.onsubmit = (event) => {
     event.preventDefault();
@@ -63,14 +74,6 @@ form.onsubmit = (event) => {
 
         // Get hour
         const time = selectedTime.value;
-        const openingHour = "08:00";
-        const closingHour = "23:00";
-
-        if (!time || time < openingHour || time > closingHour) {
-            alert(
-                `Por favor, insira um horário válido. (${openingHour} - ${closingHour})`
-            );
-        }
 
         // Insert hour into date
         const [hour, minute] = time.split(":");
@@ -87,7 +90,9 @@ form.onsubmit = (event) => {
 
         closeScheduleForm();
 
-        console.log({ id, tutor, pet, phone, description, date, time });
+        scheduleNew({ id, tutor, pet, phone, description, when });
+
+        schedulesLoad();
     } catch (error) {
         alert("Não foi possível realizar um novo agendamento.");
         console.log(error);

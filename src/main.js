@@ -10,4 +10,6 @@ import "./styles/form.css";
 
 // JS
 import "./modules/form/submit.js";
+import "./modules/schedules/date-change.js";
+import "./modules/schedules/cancel.js";
 import "./modules/page-load.js";

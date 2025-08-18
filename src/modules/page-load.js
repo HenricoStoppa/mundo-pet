@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import { closeScheduleForm } from "./form/close.js";
 import { openScheduleForm } from "./form/open.js";
+import { schedulesLoad } from "./schedules/load.js";
 
 const schedulesListDateInput = document.getElementById("schedules-date");
 const newScheduleButton = document.getElementById("new-schedule");
@@ -20,4 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     cancelScheduleButton.onclick = () => {
         closeScheduleForm();
     };
+
+    schedulesLoad();
 });
