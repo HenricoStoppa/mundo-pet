@@ -210,3 +210,32 @@ li {
 .button:hover {
     background-color: var(--bg-highlights-color);
 }
+
+/* ===== RESONPONSIVITY ===== */
+
+@media (max-width: 1024px) {
+    /* ===== TITLE ===== */
+    .agenda {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        width: 90%;
+
+        margin-top: 3rem;
+    }
+
+    /* ===== SCHEDULES ===== */
+    .schedule-period {
+        width: 90%;
+    }
+
+    .schedule-period .period li {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .schedule-period .period li .remove-schedule {
+        text-align: right;
+    }
+}

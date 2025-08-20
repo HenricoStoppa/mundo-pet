@@ -168,3 +168,38 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .cancel-schedule:hover {
     background-color: var(--accent-red-light-color);
 }
+
+/* ===== RESONPONSIVITY ===== */
+
+@media (max-width: 500px) {
+    /* ===== FORM =====*/
+
+    .form {
+        padding: 2rem 1rem;
+
+        width: 90%;
+    }
+
+    .form .form-title {
+        line-height: 2rem;
+    }
+
+    .date-time {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form .date-time .form-input-date,
+    .form .date-time .form-input-time {
+        width: 100%;
+    }
+
+    .form input[type="date"]::-webkit-calendar-picker-indicator {
+        margin-left: 10.1rem;
+    }
+
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        margin-left: 14.5rem;
+    }
+}
